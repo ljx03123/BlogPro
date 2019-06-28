@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>首页_林俊鑫个人博客 - 一个python后端技术员个人博客网站</title>
+<meta name="keywords" content="个人博客,林俊鑫个人博客,个人博客模板,林俊鑫" />
+<meta name="description" content="林俊鑫个人博客，是一个站在后端设计之路的程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/static/home/css/base.css" rel="stylesheet">
+<link href="/static/home/css/index.css" rel="stylesheet">
+<link href="/static/home/css/m.css" rel="stylesheet">
+<script src="/static/home/js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/static/home/js/comm.js"></script>
+<!--[if lt IE 9]>
+<script src="/static/home/js/modernizr.js"></script>
+<![endif]-->
+</head>
+<body>
+<header class="header-navigation" id="header">
+  <nav><div class="logo"><a href="/">林俊鑫个人博客</a></div>
+    <h2 id="mnavh"><span class="navicon"></span></h2>
+    <ul id="starlist">
+      <li><a href='{{ url_for('blog.index') }}'>网站首页</a></li>
+      <li><a href="share.html">我的相册</a></li>
+      <li><a href="list.html">我的日记</a></li>
+      <li><a href="about.html">关于我</a></li>
+      <li><a href="gbook.html">留言</a></li>
+      <li><a href="info.html">内容页</a></li>
+      <li><a href="infopic.html">内容页</a></li>
+    </ul>
+</nav>
+</header>
+<article>
+  <aside class="l_box">
+      <div class="about_me">
+        <h2>关于我</h2>
+        <ul>
+          <i><img src="/static/home/images/ljx.jpg"></i>
+          <p><b>林俊鑫</b>，一直潜心研究python后端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。</p>
+        </ul>
+      </div>
+      <div class="wdxc">
+        <h2>我的相册</h2>
+        <ul>
+          <li><a href="/"><img src="/static/home/images/7.jpg"></a></li>
+          <li><a href="/"><img src="/static/home/images/8.jpg"></a></li>
+          <li><a href="/"><img src="/static/home/images/9.jpg"></a></li>
+          <li><a href="/"><img src="/static/home/images/10.jpg"></a></li>
+          <li><a href="/"><img src="/static/home/images/11.jpg"></a></li>
+          <li><a href="/"><img src="/static/home/images/12.jpg"></a></li>
+        </ul>
+      </div>
+      <div class="search">
+        <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+          <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+          <input name="show" value="title" type="hidden">
+          <input name="tempid" value="1" type="hidden">
+          <input name="tbname" value="news" type="hidden">
+          <input name="Submit" class="input_submit" value="搜索" type="submit">
+        </form>
+      </div>
+      <div class="fenlei">
+        <h2>文章分类</h2>
+        <ul>
+            {% for cat in cats %}
+                <li><a href="{{ url_for('blog.category_list', cid=cat.id) }}">{{ cat.name }}（{{ cat.atricles | length }}）</a></li>
+            {% endfor %}
+        </ul>
+      </div>
+      <div class="tuijian">
+        <h2>站长推荐</h2>
+        <ul>
+          <li><a href="/">你是什么人便会遇上什么人</a></li>
+          <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
+          <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
+          <li><a href="/">个人博客模板《绅士》后台管理</a></li>
+          <li><a href="/">你是什么人便会遇上什么人</a></li>
+          <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
+          <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
+          <li><a href="/">个人博客模板《绅士》后台管理</a></li>
+        </ul>
+      </div>
+      <div class="links">
+        <h2>友情链接</h2>
+        <ul>
+          <a href="http://www.yangqq.com">林俊鑫个人博客</a> <a href="http://www.yangqq.com">林俊鑫博客</a>
+        </ul>
+      </div>
+      <div class="guanzhu">
+        <h2>关注我 么么哒</h2>
+        <ul>
+          <img src="/static/home/images/wx.jpg">
+        </ul>
+      </div>
+  </aside>
+  <main class="r_box">
+    <li><i><a href="/"><img src="/static/home/images/1.jpg"></a></i>
+      <h3><a href="/">Python概述</a></h3>
+      <p>Python是一种高层次的，解释性的，交互式和面向对象的脚本语言。Python被设计成具有非常强的可读性，它使用英语如其它语言经常使用空白作为标点符号，它比其它语言语法结构更少。
+Python被解析：这意味着它是在执行时由解释器处理，你并不须要在执行前编译程序。这类似于Perl和PHP。
+Python是面向对象的：这意味着Python支持面向对象的方式或程序，它封装了对象中的代码的技术
+</p>
+    </li>
+    <li><i><a href="/"><img src="/static/home/images/2.jpg"></a></i>
+      <h3><a href="/">Linux 用户和用户组管理</a></h3>
+      <p>Linux系统是一个多用户多任务的分时操作系统，任何一个要使用系统资源的用户，都必须首先向系统管理员申请一个账号，然后以这个账号的身份进入系统。
+          用户的账号一方面可以帮助系统管理员对使用系统的用户进行跟踪，并控制他们对系统资源的访问；另一方面也可以帮助用户组织文件，并为用户提供安全性保护。
+          每个用户账号都拥有一个唯一的用户名和各自的口令。
+          用户在登录时键入正确的用户名和口令后，就能够进入系统和自己的主目录。 </p>
+    </li>
+    <li><i><a href="/"><img src="/static/home/images/3.jpg"></a></i>
+      <h3><a href="/">JavaScript基础概念</a></h3>
+      <p>JavaScript (ECMAScript) ：JavaScript 是脚本语言。JavaScript和ECMAScript通常被人用来表达相同的含义，但是JavaScript并不是这么一点含义，它是由ECMAScript 核心. DOM 文档对象模型. BOM 浏览器对象模型 这三部分组成。浏览器会在读取代码时，逐行地执行脚本代码。而对于传统编程来说，会在执行前对所有代码进行编译。</p>
+    </li>
+    <li><i><a href="/"><img src="/static/home/images/4.jpg"></a></i>
+      <h3><a href="/">javaScript语句的注意点</a></h3>
+      <p>（1）对大小写敏感
+          （2）自动忽略多余的空格
+（3）在文本字符串中使用反斜杠对代码行进行换行
+（4）单行注释（//）多行注释（/* */）
+</p>
+    </li>
+     <li><i><a href="/"><img src="/static/home/images/1.jpg"></a></i>
+      <h3><a href="/">你是什么人便会遇上什么人</a></h3>
+      <p>有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。</p>
+    </li>
+    <li><i><a href="/"><img src="/static/home/images/2.jpg"></a></i>
+      <h3><a href="/">爱情没有永远，地老天荒也走不完</a></h3>
+      <p>也许，爱情没有永远，地老天荒也走不完，生命终结的末端，苦短情长。站在岁月的边端，那些美丽的定格，心伤的绝恋，都被四季的掩埋，一去不返。徒剩下这荒芜的花好月圆，一路相随，流离天涯背负了谁的思念？</p>
+    </li>
+    <li><i><a href="/"><img src="/static/home/images/3.jpg"></a></i>
+      <h3><a href="/">Python标识符命名约定</a></h3>
+      <p>（1）类名以大写字母以及全部其他标识符以小写字母。
+（2）开头单个前导下划线的标识符表示由该标识符约定意思是私有的。
+（3）开头两个前导下划线的标识符表示一个强烈的私有的标识符。
+（4）假设标识符末尾还具有两个下划线结束时，该标识符是一个语言定义的特殊名称。
+</p>
+    </li>
+    <li><i><a href="/"><img src="/static/home/images/4.jpg"></a></i>
+      <h3><a href="/"> javaScript脚本加载的位置</a></h3>
+      <p>(1) 通过在网页中加入Script 节点标记JavaScript的开始和结束，将JavaScript代码放在Script节点之间
+(2) 也可以引入一个外部的JavaScript文件，这个JavaScript文件一般以.js作为扩展名
+(3) 原则上，放在head头部之间。但视情况可以放在网页的任何部分
+(4) 一个页面可以有几个，不同部分的方法和变量，可以共享。</p>
+    </li>
+    <li><i><a href="/"><img src="/static/home/images/1.jpg"></a></i>
+      <h3><a href="/">IDCSystem综合业务管理系统</a></h3>
+      <p>IDCSystem是一款集前台销售系统、产品业务管理系统、财务结算系统、用户服务管理系统及售后服务管理系统于一身的IDC综合业务管理平台系统。凭借自动化、智能化、模块化及开放式的设计理念，可让您在系统平台上销售和管理所有的IDC业务，如：VPS云主机、域名注册、虚拟主机空间、服务器租用托管、SSL证书产品等等。</p>
+    </li>
+    <li><i><a href="/"><img src="/static/home/images/5.jpg"></a></i>
+      <h3><a href="/">擦肩而过</a></h3>
+      <p>《擦肩而过》文/清河鱼 编绘/天朝羽打开一扇窗，我不曾把你想得平常。看季节一一过往。你停留的那个地方，是否依然花儿开放？在夜里守靠着梦中的，想那仿佛前世铭刻进心肠的</p>
+    </li>
+      <li><i><a href="/"><img src="/static/home/images/2.jpg"></a></i>
+      <h3><a href="/">非合上的渔民</a></h3>
+      <p>万法归宗，思路决定出路。人只有开启了智慧的法门，以不变应万变，举一反三，触类旁通，解决问题的途径和方法自然顺理成章，水到渠成。</p>
+    </li>
+    <li><i><a href="/"><img src="/static/home/images/6.jpg"></a></i>
+      <h3><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></h3>
+      <p>还在为浪漫的求婚词而烦恼不知道该怎么说吗？女孩子都有着浪漫的小情怀，对于求婚更是抱着满满的浪漫期待，也希望在求婚那一天对方可以给自己一个最浪漫的求婚词。</p>
+    </li>
+    <li><i><a href="/"><img src="/static/home/images/7.jpg"></a></i>
+      <h3><a href="/">python标准的数据类型</a></h3>
+      <p>存储在内存中的数据能够是多种类型的。比如，一个人的年龄被存储为一个数字值和他的地址被存储为字母数字字符。Python用于对每一个人的操作的各种标准类型定义在存储方法。
+Python有五个标准的数据类型：数字、字符串、列表、元组、字典
+</p>
+    </li>
+    <li><i><a href="/"><img src="/static/home/images/8.jpg"></a></i>
+      <h3><a href="/">客户关系管理系统</a></h3>
+      <p>客户关系管理系统，是指利用软件、硬件和网络技术，为企业建立一个客户信息收集、管理、分析和利用的信息系统。以客户数据的管理为核心，记录企业在市场营销和销售过程中和客户发生的各种交互行为，以及各类有关活动的状态，提供各类数据模型，为后期的分析和决策提供支持。</p>
+    </li>
+    <li><i><a href="/"><img src="/static/home/images/9.jpg"></a></i>
+      <h3><a href="/">Python 作用域</a></h3>
+      <p>作用域：Python使用名称空间的概念存储对象，这个名称空间就是对象作用的区域， 不同对象存在于不同的作用域。下面是不同对象的作用域规则：
+（1）每个模块都有自已的全局作用域。
+（2）函数定义的对象属局部作用域，只在函数内有效，不会影响全局作用域中的对象。
+（3）赋值对象属局部作用域，除非使用global关键字进行声明。
+</p>
+    </li>
+  </main>
+</article>
+<footer>
+  <p>Design by <a href="http://www.yangqq.com" target="_blank">林俊鑫个人博客</a> <a href="/">蜀ICP备11002373号-1</a></p>
+</footer>
+<a href="#" class="cd-top">Top</a>
+</body>
+</html>

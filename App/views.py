@@ -4,6 +4,7 @@ from math import ceil
 from flask import Blueprint, render_template, request, redirect, url_for, session
 from App.models import *
 
+# 蓝图
 blue = Blueprint('blog', __name__)
 
 # 博客首页
@@ -141,10 +142,10 @@ def article():
     counts = Article.query.count()
     per_page = 5       # 每页显示文章的篇数为5篇
     pages = ceil(counts/5)      # 获取分页的总页数
-    page = request.args.get('page')   # 获取当前页码
+    page = request.args.get('page')  # 获取当前页码
     if not page:           # 跳转到文章首页时，默认分页在第一页
         page = 1
-    arts = Article.query.order_by(Article.date).paginate(int(page), 5, False).items
+    arts = Article.query.order_by(Article.date).paginate(int(page), per_page, False).items
     return render_template('admin/article.html', arts=arts, counts=counts, pages=pages, pag=int(page))
 
 
